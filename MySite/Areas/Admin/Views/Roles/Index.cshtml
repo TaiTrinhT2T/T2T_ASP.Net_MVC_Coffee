@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MySite.Areas.Data_Access.EF.Role>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="banner">
+    <h2>
+        <a href="">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Roles</span>
+    </h2>
+</div>
+
+<div class="banner">
+    <h2>Danh sách quyền</h2>
+</div>
+<div class="grid-form">
+    <div class="grid-form1">
+        <p>
+            <a href="/Admin/Roles/Create" class="btn btn-primary">CREATE NEW</a>
+            @*@Html.ActionLink("Create New", "Create")*@
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name_Role)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name_Role)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Role }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID_Role }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Role })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

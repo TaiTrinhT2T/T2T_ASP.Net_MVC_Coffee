@@ -1,0 +1,73 @@
+﻿@model MySite.Areas.Data_Access.EF.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="banner">
+    <h2>
+        <a href="">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="/Admin/Products/Index">Products</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Detail</span>
+    </h2>
+</div>
+
+<div class="banner">
+    <h2>Chi tiết sản phẩm</h2>
+</div>
+<div class="grid-form">
+    <div class="grid-form1">
+        <div>
+            <h4>Product</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Detail)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Detail)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Image)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Image)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Creating_Date)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Creating_Date)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Product }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>

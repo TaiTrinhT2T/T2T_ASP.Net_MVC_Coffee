@@ -1,0 +1,50 @@
+﻿@model MySite.Areas.Data_Access.EF.Responsibilty
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="banner">
+    <h2>
+        <a href="">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="/Admin/Responsibilties/Index">Responsibilties</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Detail</span>
+    </h2>
+</div>
+
+<div class="banner">
+    <h2>Chi tiết chức vị</h2>
+</div>
+
+<div class="grid-form">
+    <div class="grid-form1">
+        <div>
+            <h4>Chức vị</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Res }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>

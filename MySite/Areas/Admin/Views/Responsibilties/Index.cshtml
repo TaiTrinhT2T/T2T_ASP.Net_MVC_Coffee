@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MySite.Areas.Data_Access.EF.Responsibilty>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="banner">
+    <h2>
+        <a href="">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Responsibilties</span>
+    </h2>
+</div>
+
+<div class="banner">
+    <h2>Danh sách chức vị</h2>
+</div>
+<div class="grid-form">
+    <div class="grid-form1">
+        <p>
+            <a href="/Admin/Responsibilties/Create" class="btn btn-primary">CREATE NEW</a>
+            @*@Html.ActionLink("Create New", "Create")*@
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Res }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID_Res }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Res })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

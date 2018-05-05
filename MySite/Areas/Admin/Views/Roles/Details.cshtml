@@ -1,0 +1,42 @@
+﻿@model MySite.Areas.Data_Access.EF.Role
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="banner">
+    <h2>
+        <a href="">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="/Admin/Roles/Index">Roles</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Detail</span>
+    </h2>
+</div>
+
+<div class="banner">
+    <h2>Chi tiết quyền</h2>
+</div>
+<div class="grid-form">
+    <div class="grid-form1">
+        <div>
+            <h4>Role</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name_Role)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name_Role)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Role }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>
