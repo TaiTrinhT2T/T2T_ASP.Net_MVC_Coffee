@@ -25,7 +25,8 @@ namespace MySite.Areas.Admin.Controllers
         public ActionResult Details(int id)
         {
             Product e = dao.FindProduct(id);
-
+            //Product listResponsibilty = e;
+            ViewBag.DetailUrlImageProduct = e;
             return View("Details", e);
         }
 
@@ -43,7 +44,8 @@ namespace MySite.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
             Product e = dao.FindProduct(id);
-
+            //Product listResponsibilty = e;
+            ViewBag.EditUrlImageProduct = e;
             return View(e);
         }
 

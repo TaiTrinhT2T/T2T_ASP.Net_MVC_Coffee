@@ -55,7 +55,9 @@
                         @Html.DisplayFor(modelItem => item.Price)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Image)
+                         <div>
+                             <img src="@item.Image" style="margin-top: 15px; width: 200px;">
+                         </div>
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Creating_Date)

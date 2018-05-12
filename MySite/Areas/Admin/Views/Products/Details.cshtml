@@ -1,4 +1,5 @@
-﻿@model MySite.Areas.Data_Access.EF.Product
+﻿@using MySite.Areas.Data_Access.EF
+@model MySite.Areas.Data_Access.EF.Product
 
 @{
     ViewBag.Title = "Details";
@@ -52,7 +53,17 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Image)
+                    <div>
+                        @Html.DisplayFor(model => model.Image)
+                    </div>
+                    @if (ViewBag.DetailUrlImageProduct != null)
+                    {
+                        Product i = ViewBag.DetailUrlImageProduct;
+                        <div>
+                            <img src="@i.Image" style="margin-top: 15px; width: 200px;">
+                        </div>
+                    }
+
                 </dd>
 
                 <dt>

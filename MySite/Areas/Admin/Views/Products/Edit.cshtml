@@ -1,8 +1,24 @@
-﻿@model MySite.Areas.Data_Access.EF.Product
+﻿@using MySite.Areas.Data_Access.EF
+@model MySite.Areas.Data_Access.EF.Product
 
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section jsCkFinder
+{
+    <script>
+        $("#btnSelectImage").on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $("#txtImage").val(url);
+                $("#urlImage").attr('src', url);
+            }
+            finder.popup();
+        });
+    </script>
 }
 <div class="banner">
     <h2>
@@ -58,7 +74,19 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                       @* @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })*@
+                        <div>
+                            @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @id = "txtImage" } })
+                            @if (ViewBag.EditUrlImageProduct != null)
+                            {
+                                Product i = ViewBag.EditUrlImageProduct;
+                                <div>
+                                    <img src="@i.Image" style="margin-top: 15px; width: 200px;">
+                                </div>
+                            }
+                        </div>
+                        <a id="btnSelectImage" href="#">Chọn ảnh</a>
+                        
                         @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
                     </div>
                 </div>
