@@ -1,0 +1,59 @@
+﻿@using MySite.Areas.Data_Access.EF
+@model MySite.Areas.Data_Access.EF.Product
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mens">
+    <div class="main">
+        <div class="wrap">
+            @*<ul class="breadcrumb breadcrumb__t"><a class="home" href="#">Home</a> / <a href="#">Dolor sit amet</a> / Lorem ipsum dolor sit amet</ul>*@
+            <div>
+                <div class="grid images_3_of_2">
+                    <!-- FlexSlider -->
+                    <script src="~/Assets/Client/js/imagezoom.js"></script>
+                    <script defer src="~/Assets/Client/js/jquery.flexslider.js"></script>
+                    <link rel="stylesheet" href="~/Assets/Client/css/flexslider.css" type="text/css" media="screen" />
+                    <script>
+							// Can also be used with $(document).ready()
+								$(window).load(function() {
+									$('.flexslider').flexslider({
+										animation: "slide",
+										controlNav: "thumbnails"
+									 });
+								});
+                    </script>
+                    <!-- //FlexSlider-->
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li data-thumb="@Model.Image">
+                                <div class="thumb-image"> <img src="@Model.Image" data-imagezoom="true" class="img-responsive"> </div>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+
+
+
+                </div>
+                <div class="desc1 span_3_of_2">
+                    <h3 class="m_3">@Model.Name</h3>
+                    <p class="m_5">@Model.Price đ</p>
+                    <div class="btn_form">
+                        <form>
+                            <input type="submit" value="Buy" title="">
+                        </form>
+                    </div>
+                    <p class="m_text2">@Model.Detail</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+

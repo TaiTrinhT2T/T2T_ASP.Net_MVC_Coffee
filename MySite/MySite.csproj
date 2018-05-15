@@ -80,6 +80,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -220,6 +228,7 @@
     <Compile Include="Areas\Data Access\EF\Product.cs" />
     <Compile Include="Areas\Data Access\EF\Responsibilty.cs" />
     <Compile Include="Areas\Data Access\EF\Role.cs" />
+    <Compile Include="Controllers\HomeClientController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -305,9 +314,87 @@
     <Content Include="Assets\Admin\js\site.js" />
     <Content Include="Assets\Admin\js\skycons.js" />
     <Content Include="Assets\Admin\js\underscore-min.js" />
+    <Content Include="Assets\Client\css\default.css" />
+    <Content Include="Assets\Client\css\flexslider.css" />
+    <Content Include="Assets\Client\css\form.css" />
+    <Content Include="Assets\Client\css\magnific-popup.css" />
+    <Content Include="Assets\Client\css\megamenu.css" />
+    <Content Include="Assets\Client\css\nivo-slider.css" />
+    <Content Include="Assets\Client\css\style.css" />
+    <Content Include="Assets\Client\images\2.png" />
+    <Content Include="Assets\Client\images\3.png" />
+    <Content Include="Assets\Client\images\arrow.png" />
+    <Content Include="Assets\Client\images\arrow1.png" />
+    <Content Include="Assets\Client\images\arrow2.gif" />
+    <Content Include="Assets\Client\images\arrows.png" />
+    <Content Include="Assets\Client\images\b-arrow.png" />
+    <Content Include="Assets\Client\images\banner11.jpg" />
+    <Content Include="Assets\Client\images\banner12.jpg" />
+    <Content Include="Assets\Client\images\banner13.jpg" />
+    <Content Include="Assets\Client\images\cart.png" />
+    <Content Include="Assets\Client\images\cart2.png" />
+    <Content Include="Assets\Client\images\cart3.png" />
+    <Content Include="Assets\Client\images\coffee-logo.jpg" />
+    <Content Include="Assets\Client\images\down-arrow.png" />
+    <Content Include="Assets\Client\images\f-icon.png" />
+    <Content Include="Assets\Client\images\f-tw.png" />
+    <Content Include="Assets\Client\images\header_arrow.png" />
+    <Content Include="Assets\Client\images\img-sprite.png" />
+    <Content Include="Assets\Client\images\list_marker.png" />
+    <Content Include="Assets\Client\images\logo.png" />
+    <Content Include="Assets\Client\images\magnify-alt.png" />
+    <Content Include="Assets\Client\images\minus.gif" />
+    <Content Include="Assets\Client\images\plus.gif" />
+    <Content Include="Assets\Client\images\quotes.png" />
+    <Content Include="Assets\Client\images\search.png" />
+    <Content Include="Assets\Client\images\tag.png" />
+    <Content Include="Assets\Client\images\zoom.png" />
+    <Content Include="Assets\Client\js\css3-mediaqueries.js" />
+    <Content Include="Assets\Client\js\imagezoom.js" />
+    <Content Include="Assets\Client\js\jquery-ui.min.js" />
+    <Content Include="Assets\Client\js\jquery.easydropdown.js" />
+    <Content Include="Assets\Client\js\jquery.flexisel.js" />
+    <Content Include="Assets\Client\js\jquery.flexslider.js" />
+    <Content Include="Assets\Client\js\jquery.jscrollpane.min.js" />
+    <Content Include="Assets\Client\js\jquery.magnific-popup.js" />
+    <Content Include="Assets\Client\js\jquery.nivo.slider.js" />
+    <Content Include="Assets\Client\js\jquery1.min.js" />
+    <Content Include="Assets\Client\js\login.js" />
+    <Content Include="Assets\Client\js\megamenu.js" />
+    <Content Include="Assets\Client\js\responsiveslides.min.js" />
+    <Content Include="Assets\Client\js\slides.min.jquery.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Demo_style.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="DataCkFinder\files\1.jpg" />
+    <Content Include="DataCkFinder\files\10.jpg" />
+    <Content Include="DataCkFinder\files\11.jpg" />
+    <Content Include="DataCkFinder\files\12.jpg" />
+    <Content Include="DataCkFinder\files\13.jpg" />
+    <Content Include="DataCkFinder\files\14.jpg" />
+    <Content Include="DataCkFinder\files\2.jpg" />
+    <Content Include="DataCkFinder\files\3.jpg" />
+    <Content Include="DataCkFinder\files\4.jpg" />
+    <Content Include="DataCkFinder\files\5.jpg" />
+    <Content Include="DataCkFinder\files\6.jpg" />
+    <Content Include="DataCkFinder\files\7.jpg" />
+    <Content Include="DataCkFinder\files\8.jpg" />
+    <Content Include="DataCkFinder\files\9.jpg" />
+    <Content Include="DataCkFinder\_thumbs\Files\1.jpg" />
+    <Content Include="DataCkFinder\_thumbs\Files\10.jpg" />
+    <Content Include="DataCkFinder\_thumbs\Files\11.jpg" />
+    <Content Include="DataCkFinder\_thumbs\Files\12.jpg" />
+    <Content Include="DataCkFinder\_thumbs\Files\13.jpg" />
+    <Content Include="DataCkFinder\_thumbs\Files\14.jpg" />
+    <Content Include="DataCkFinder\_thumbs\Files\2.jpg" />
+    <Content Include="DataCkFinder\_thumbs\Files\3.jpg" />
+    <Content Include="DataCkFinder\_thumbs\Files\4.jpg" />
+    <Content Include="DataCkFinder\_thumbs\Files\5.jpg" />
+    <Content Include="DataCkFinder\_thumbs\Files\6.jpg" />
+    <Content Include="DataCkFinder\_thumbs\Files\7.jpg" />
+    <Content Include="DataCkFinder\_thumbs\Files\8.jpg" />
+    <Content Include="DataCkFinder\_thumbs\Files\9.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1056,12 +1143,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\HomeClient\Index.cshtml" />
+    <Content Include="Views\HomeClient\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="DataCkFinder\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

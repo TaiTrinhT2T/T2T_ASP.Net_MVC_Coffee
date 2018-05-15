@@ -12,11 +12,12 @@ namespace MySite.Areas.Admin.Controllers
     {
         EmployeeDao dao = new EmployeeDao();
         // GET: Admin/Employee
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 3)
         {
+            var model = dao.ListAllPaging(page, pageSize);
             // IQueryable<Office> Offices = dao.Offices;
-            IQueryable<Employee> p = dao.ListEmployee();
-           return View("Index", p);
+            //IQueryable<Employee> p = dao.ListEmployee();
+            return View("Index", model);
         }
 
         public ActionResult Detail(int id)

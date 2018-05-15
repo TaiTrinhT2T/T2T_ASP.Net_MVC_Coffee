@@ -16,10 +16,13 @@ namespace MySite.Areas.Admin.Controllers
         ProductDao dao = new ProductDao();
 
         // GET: Admin/Employee
-        public ActionResult Index()
+
+        public ActionResult Index(int page = 1, int pageSize = 10)
         {
-            IQueryable<Product> p = dao.ListProduct();
-            return View("Index", p);
+            var model = dao.ListAllPaging(page, pageSize);
+            // IQueryable<Office> Offices = dao.Offices;
+            //IQueryable<Employee> p = dao.ListEmployee();
+            return View("Index", model);
         }
 
         public ActionResult Details(int id)

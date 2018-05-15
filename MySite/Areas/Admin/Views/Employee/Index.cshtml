@@ -1,4 +1,5 @@
-﻿@model IEnumerable<MySite.Areas.Data_Access.EF.Employee>
+﻿@model PagedList.IPagedList<MySite.Areas.Data_Access.EF.Employee>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Index";
@@ -29,16 +30,16 @@
                     Role
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Name)
+                    Name
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Email)
+                    Email
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Telephone)
+                    Telephone
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Status)
+                    Status
                 </th>
                 <th></th>
             </tr>
@@ -70,5 +71,6 @@
             }
 
         </table>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
     </div>
 </div>

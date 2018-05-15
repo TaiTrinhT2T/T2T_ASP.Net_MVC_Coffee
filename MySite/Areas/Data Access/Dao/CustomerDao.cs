@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using MySite.Areas.Data_Access.EF;
 using System.Data.SqlClient;
+using PagedList;
 
 namespace MySite.Areas.Data_Access.Dao
 {
@@ -66,6 +67,11 @@ namespace MySite.Areas.Data_Access.Dao
         public Customer FindCustomer(int id)
         {
             return db.Customers.Find(id);
+        }
+
+        public IPagedList<Customer> ListAllPaging(int page, int pageSize)
+        {
+            return db.Customers.OrderByDescending(x => x.Name).ToPagedList(page, pageSize);
         }
     }
 }

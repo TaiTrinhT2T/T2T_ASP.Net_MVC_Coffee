@@ -1,0 +1,146 @@
+﻿@using MySite.Areas.Data_Access.EF
+@model PagedList.IPagedList<MySite.Areas.Data_Access.EF.Product>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="banner-slider">
+    <div class="callbacks_container">
+        <ul class="rslides" id="slider4">
+            <li>
+                <div class="banner-img">
+                    <img src="~/Assets/Client/images/banner11.jpg" class="img-responsive" alt="" />
+                </div>
+                <h4>Noc coffee</h4>
+                <h5>Experience your way</h5>
+            </li>
+            <li>
+                <div class="banner-img">
+                    <img src="~/Assets/Client/images/banner12.jpg" class="img-responsive" alt="" />
+                </div>
+                <h4>Noc coffee</h4>
+                <h5>Experience your way</h5>
+            </li>
+            <li>
+                <div class="banner-img">
+                    <img src="~/Assets/Client/images/banner13.jpg" class="img-responsive" alt="" />
+                </div>
+                <h4>Noc coffee</h4>
+                <h5>Experience your way</h5>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--banner Slider starts Here-->
+<script src="~/Assets/Client/js/responsiveslides.min.js"></script>
+<script>
+			    // You can also use "$(window).load(function() {"
+			    $(function () {
+			      // Slideshow 4
+			      $("#slider4").responsiveSlides({
+			        auto: true,
+			        pager:false,
+			        nav: true,
+			        speed: 500,
+			        namespace: "callbacks",
+			        before: function () {
+			          $('.events').append("<li>before event fired.</li>");
+			        },
+			        after: function () {
+			          $('.events').append("<li>after event fired.</li>");
+			        }
+			      });
+
+			    });
+</script>
+
+<!--/slider -->
+<div class="main">
+    <div class="wrap">
+        <div class="section group">
+            <div>
+                <h2 class="head">Featured Products</h2>
+                @if (Model.Count > 0)
+                {
+                    int i;
+                    for (i = 0; i < Model.Count; i += 3)
+                    {
+                        Product item = Model[i];
+                        <div class="top-box">
+                            <div class="col_1_of_3 span_1_of_3">
+                                <a href="/HomeClient/View/@item.ID_Product">
+                                    <div class="inner_content clearfix">
+                                        <div class="product_image">
+                                            <img src="@item.Image" alt="" width="350" height="270"/>
+                                        </div>
+                                        <div class="price">
+                                            <div class="cart-left">
+                                                <p class="title">@item.Name</p>
+                                                <div class="price1">
+                                                    <span class="actual">@item.Price đ</span>
+                                                </div>
+                                            </div>
+                                            <div class="cart-right"> </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            @if (i + 1 < Model.Count)
+                            {
+                                Product item2 = Model[i + 1];
+                                <div class="col_1_of_3 span_1_of_3">
+                                    <a href="/HomeClient/View/@item2.ID_Product">
+                                        <div class="inner_content clearfix">
+                                            <div class="product_image">
+                                                <img src="@item2.Image" alt="" width="350" height="270" />
+                                            </div>
+                                            <div class="price">
+                                                <div class="cart-left">
+                                                    <p class="title">@item2.Name</p>
+                                                    <div class="price1">
+                                                        <span class="actual">@item2.Price đ</span>
+                                                    </div>
+                                                </div>
+                                                <div class="cart-right"> </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                            @if (i + 2 < Model.Count)
+                            {
+                                Product item3 = Model[i + 2];
+                                <div class="col_1_of_3 span_1_of_3">
+                                    <a href="/HomeClient/View/@item3.ID_Product">
+                                        <div class="inner_content clearfix">
+                                            <div class="product_image">
+                                                <img src="@item3.Image" alt="" width="350" height="270" />
+                                            </div>
+                                            <div class="price">
+                                                <div class="cart-left">
+                                                    <p class="title">@item3.Name</p>
+                                                    <div class="price1">
+                                                        <span class="actual">@item3.Price đ</span>
+                                                    </div>
+                                                </div>
+                                                <div class="cart-right"> </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+
+                            <div class="clear"></div>
+                        </div>
+                    }
+                }
+            </div>
+           
+        </div>
+    </div>
+</div>
