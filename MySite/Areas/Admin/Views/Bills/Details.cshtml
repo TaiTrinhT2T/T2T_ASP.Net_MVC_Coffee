@@ -1,0 +1,91 @@
+﻿@using MySite.Areas.Admin.Models
+@model IEnumerable<MySite.Areas.Admin.Models.ChiTietHoaDon>
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="banner">
+    <h2>
+        <a href="/Admin/Home/Index">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="/Admin/Customers/Index">Bils</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Detail</span>
+    </h2>
+</div>
+
+<div class="banner">
+    <h2>Chi tiết hóa đơn</h2>
+</div>
+<div class="grid-form">
+    <div class="grid-form1">
+        <div>
+            <h4>Customer</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                @{
+                    var item1 = Model.FirstOrDefault();
+                    <dt>
+                        Tên khách hàng
+                    </dt>
+                    <dd>
+                        @item1.NameCustomer
+                    </dd>
+
+                    <dt>
+                        Tên nhân viên
+                    </dt>
+                    <dd>
+                        @item1.NameEmployee
+                    </dd>
+                    <dt>
+                        Ngày tạo
+                    </dt>
+                    <dd>
+                        @item1.Date
+                    </dd>
+                    <dt>
+                        Tổng tiền
+                    </dt>
+                    <dd>
+                        @item1.Total đ
+                    </dd>
+                }
+            </dl>
+            <table class="table">
+                <tr>
+                    <th>
+                        Tên sản phẩm
+                    </th>
+                    <th>
+                        Giá sản phẩm
+                    </th>
+                    <th>
+                        Số lượng
+                    </th>
+                </tr>
+
+            @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NameProduct)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <p>
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>

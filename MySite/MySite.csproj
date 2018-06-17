@@ -209,6 +209,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BillsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
     <Compile Include="Areas\Admin\Controllers\EmployeeController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
@@ -216,6 +217,9 @@
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ResponsibiltiesController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
+    <Compile Include="Areas\Admin\Models\ChiTietHoaDon.cs" />
+    <Compile Include="Areas\Admin\Models\HoaDon.cs" />
+    <Compile Include="Areas\Data Access\Dao\BillDao.cs" />
     <Compile Include="Areas\Data Access\Dao\CustomerDao.cs" />
     <Compile Include="Areas\Data Access\Dao\EmployeeDao.cs" />
     <Compile Include="Areas\Data Access\Dao\ProductDao.cs" />
@@ -224,11 +228,14 @@
     <Compile Include="Areas\Data Access\EF\Bill.cs" />
     <Compile Include="Areas\Data Access\EF\Customer.cs" />
     <Compile Include="Areas\Data Access\EF\Employee.cs" />
+    <Compile Include="Areas\Data Access\EF\GioHangHoa.cs" />
+    <Compile Include="Areas\Data Access\EF\HangHoaBan.cs" />
     <Compile Include="Areas\Data Access\EF\Model1.cs" />
     <Compile Include="Areas\Data Access\EF\Product.cs" />
     <Compile Include="Areas\Data Access\EF\Responsibilty.cs" />
     <Compile Include="Areas\Data Access\EF\Role.cs" />
     <Compile Include="Controllers\HomeClientController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -472,6 +479,8 @@
     <Content Include="Scripts\ckFinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Scripts\ckFinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Scripts\ckFinder\userfiles\.htaccess" />
+    <Content Include="Areas\Admin\Views\Bills\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Bills\Details.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckFinder\changelog.txt" />
     <Content Include="Scripts\ckFinder\ckfinder.html" />
@@ -1123,6 +1132,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsShoppingCart\cartController.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -1145,10 +1155,13 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\HomeClient\Index.cshtml" />
     <Content Include="Views\HomeClient\View.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Shared\HeaderCart.cshtml" />
+    <Content Include="Views\ShoppingCart\Payment.cshtml" />
+    <Content Include="Views\ShoppingCart\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

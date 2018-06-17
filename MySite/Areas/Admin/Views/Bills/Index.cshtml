@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MySite.Areas.Admin.Models.HoaDon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="banner">
+    <h2>
+        <a href="/Admin/Home/Index">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Bills</span>
+    </h2>
+</div>
+
+<div class="banner">
+    <h2>Danh sách hóa đơn</h2>
+</div>
+<div class="grid-form">
+    <div class="grid-form1">
+        <table class="table">
+            <tr>
+                <th>
+                    Tên khách hàng
+                </th>
+                <th>
+                    Tên nhân viên
+                </th>
+                <th>
+                    Ngày tạo
+                </th>
+                <th>
+                    Tổng tiền
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameCustomer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameEmployee)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Total)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.ID_HoaDon }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_HoaDon })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

@@ -26,7 +26,12 @@ namespace MySite
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );// 
 
-
+//            routes.MapRoute(
+//                name: "Add cart",
+//                url: "them-gio-hang",// nhớ nhé !
+//                defaults: new { controller = "ShoppingCart", action = "AddItem", id = UrlParameter.Optional },
+//                namespaces: new []{"MySite.Controllers"}
+//            );
         }
 
     }

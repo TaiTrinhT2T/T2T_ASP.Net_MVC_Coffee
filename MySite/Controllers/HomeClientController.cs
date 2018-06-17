@@ -10,6 +10,8 @@ namespace MySite.Controllers
 {
     public class HomeClientController : Controller
     {
+        private const string CartSession = "cart";
+
         ProductDao dao = new ProductDao();
 
         // GET: Admin/Employee
@@ -28,6 +30,18 @@ namespace MySite.Controllers
             //Product listResponsibilty = e;
             ViewBag.DetailUrlImageProduct = e;
             return View("View", e);
+        }
+
+        [ChildActionOnly]
+        public PartialViewResult HeaderCart()
+        {
+            var cart = Session[CartSession];
+            var list = new List<HangHoaBan>();
+            if (cart != null)
+            {
+                list = (List<HangHoaBan>)cart;
+            }
+            return PartialView(list);
         }
     }
 }

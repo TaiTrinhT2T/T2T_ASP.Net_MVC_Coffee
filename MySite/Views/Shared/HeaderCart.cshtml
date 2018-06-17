@@ -1,0 +1,14 @@
+﻿@model List<MySite.Areas.Data_Access.EF.HangHoaBan>
+
+@{
+    int? sum = 0;
+    foreach (var item in Model)
+    {
+        sum += item.sl;
+    }
+}
+
+<a href="http://localhost:57497/ShoppingCart/Index">
+    Cart (@sum)
+</a>
+

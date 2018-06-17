@@ -1,0 +1,186 @@
+﻿@model List<MySite.Areas.Data_Access.EF.HangHoaBan>
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section cssShoppingCart
+{
+    <link href="~/Assets/Admin/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="~/Assets/Admin/css/font-awesome.css" rel="stylesheet">
+    <script src="~/Assets/Admin/js/jquery.min.js"> </script>
+     <!-- Custom Theme files -->
+    <link href="~/Assets/Admin/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/Assets/Admin/css/font-awesome.css" rel="stylesheet">
+    <script src="~/Assets/Admin/js/jquery.min.js"> </script>
+    <script src="~/Assets/Admin/js/bootstrap.min.js"> </script>
+
+    <!-- Mainly scripts -->
+    <script src="~/Assets/Admin/js/jquery.metisMenu.js"></script>
+    <script src="~/Assets/Admin/js/jquery.slimscroll.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <link href="~/Assets/Admin/css/custom.css" rel="stylesheet">
+    <script src="~/Assets/Admin/js/custom.js"></script>
+    <script src="~/Assets/Admin/js/screenfull.js"></script>
+    <style type="text/css">
+        .text-center {
+            text-align: center;
+        }
+
+        tr {
+            display: table-row;
+            vertical-align: inherit;
+            border-color: inherit;
+        }
+
+        th {
+            font-weight: bold;
+            text-align: -internal-center;
+        }
+
+        tbody {
+            display: table-row-group;
+            vertical-align: middle;
+            border-color: inherit;
+        }
+
+        .table > tbody > tr > td, .table > tfoot > tr > td {
+            vertical-align: middle;
+        }
+
+        table#cart thead {
+            display: table-header-group;
+            vertical-align: middle;
+            border-color: inherit;
+            border-top-color: inherit;
+            border-right-color: inherit;
+            border-bottom-color: inherit;
+            border-left-color: inherit;
+        }
+
+        td, th {
+            display: table-cell;
+            vertical-align: inherit;
+        }
+    </style>
+}
+
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:50%">Tên sản phẩm</th>
+                <th style="width:10%">Giá</th>
+                <th style="width: 10%">Số lượng</th>
+                <th style="width: 30%" class="text-center">Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if(Model.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td data-th="Product">
+                            <div class="row">
+                                <div class="col-sm-2 hidden-xs">
+                                    <img src="@item.product.Image" alt="@item.product.Name" class="img-responsive" width="100">
+                                </div>
+                                <div class="col-sm-10">
+                                    <h4 class="nomargin">@item.product.Name</h4>
+                                    <p>@item.product.Detail</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td data-th="Price">@item.product.Price đ</td>
+                        <td data-th="Quantity">
+                            <p>@item.sl</p>
+                        </td>
+                        <td data-th="Subtotal" class="text-center">@(item.product.Price * item.sl) đ</td>
+                        
+                    </tr>
+                }
+            }
+
+        </tbody>
+        <tfoot>
+            @{
+                int? sum = 0;
+                foreach (var item2 in Model)
+                {
+                    sum += item2.product.Price * item2.sl;
+                }
+            }
+            <tr class="visible-xs">
+                <td class="text-center">
+                    <strong>@sum</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    
+                </td>
+                <td colspan="2" class="hidden-xs"> </td>
+                <td class="hidden-xs text-center">
+                    <strong>Tổng tiền @sum đ</strong>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div class="banner">
+    <h2>Thông tin của bạn:</h2>
+</div>
+
+<div class="grid-form">
+    <div class="grid-form1">
+        @using (Html.BeginForm("PaymentAction", "ShoppingCart"))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="Name">Tên</label>
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-length="The field Name must be a string with a maximum length of 50." data-val-length-max="50" id="Name" name="Name" type="text" value="">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="Address">Địa chỉ</label>
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-length="The field Address must be a string with a maximum length of 500." data-val-length-max="500" id="Address" name="Address" type="text" value="">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Address" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="Email">Email</label>
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-length="The field Email must be a string with a maximum length of 100." data-val-length-max="100" id="Email" name="Email" type="text" value="">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="Telephone">Số điện thoại</label>
+                    <div class="col-md-10">
+                        <input class="form-control text-box single-line" data-val="true" data-val-length="The field Telephone must be a string with a maximum length of 40." data-val-length-max="40" id="Telephone" name="Telephone" type="text" value="">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Telephone" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Gửi đơn hàng" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

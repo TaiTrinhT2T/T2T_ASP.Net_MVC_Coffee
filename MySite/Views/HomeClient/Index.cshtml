@@ -70,68 +70,80 @@
                         Product item = Model[i];
                         <div class="top-box">
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="/HomeClient/View/@item.ID_Product">
                                     <div class="inner_content clearfix">
-                                        <div class="product_image">
-                                            <img src="@item.Image" alt="" width="350" height="270"/>
-                                        </div>
-                                        <div class="price">
-                                            <div class="cart-left">
-                                                <p class="title">@item.Name</p>
-                                                <div class="price1">
-                                                    <span class="actual">@item.Price đ</span>
-                                                </div>
+                                        <a href="/HomeClient/View/@item.ID_Product">
+                                            <div class="product_image">
+                                                <img src="@item.Image" alt="" width="350" height="270"/>
                                             </div>
+                                        </a>
+                                        <div class="price">
+                                            <a href="/HomeClient/View/@item.ID_Product">
+                                                <div class="cart-left">
+                                                    <p class="title">@item.Name</p>
+                                                    <div class="price1">
+                                                        <span class="actual">@item.Price đ</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="/ShoppingCart/AddItem?id=@item.ID_Product&quantity=1">
                                             <div class="cart-right"> </div>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-                                </a>
+                                                </a>
+                                                <div class="clear"></div>
+</div>
+</div>
                             </div>
                             @if (i + 1 < Model.Count)
                             {
                                 Product item2 = Model[i + 1];
                                 <div class="col_1_of_3 span_1_of_3">
-                                    <a href="/HomeClient/View/@item2.ID_Product">
-                                        <div class="inner_content clearfix">
+                                    <div class="inner_content clearfix">
+                                        <a href="/HomeClient/View/@item2.ID_Product">
                                             <div class="product_image">
                                                 <img src="@item2.Image" alt="" width="350" height="270" />
                                             </div>
-                                            <div class="price">
+                                        </a>
+                                        <div class="price">
+                                            <a href="/HomeClient/View/@item2.ID_Product">
                                                 <div class="cart-left">
                                                     <p class="title">@item2.Name</p>
                                                     <div class="price1">
                                                         <span class="actual">@item2.Price đ</span>
                                                     </div>
                                                 </div>
+                                            </a>
+                                            <a href="/ShoppingCart/AddItem?id=@item2.ID_Product&quantity=1">
                                                 <div class="cart-right"> </div>
-                                                <div class="clear"></div>
-                                            </div>
+                                            </a>
+                                            <div class="clear"></div>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
                             }
                             @if (i + 2 < Model.Count)
                             {
                                 Product item3 = Model[i + 2];
                                 <div class="col_1_of_3 span_1_of_3">
-                                    <a href="/HomeClient/View/@item3.ID_Product">
-                                        <div class="inner_content clearfix">
+                                    <div class="inner_content clearfix">
+                                        <a href="/HomeClient/View/@item3.ID_Product">
                                             <div class="product_image">
                                                 <img src="@item3.Image" alt="" width="350" height="270" />
                                             </div>
-                                            <div class="price">
+                                        </a>
+                                        <div class="price">
+                                            <a href="/HomeClient/View/@item3.ID_Product">
                                                 <div class="cart-left">
                                                     <p class="title">@item3.Name</p>
                                                     <div class="price1">
                                                         <span class="actual">@item3.Price đ</span>
                                                     </div>
                                                 </div>
+                                            </a>
+                                            <a href="/ShoppingCart/AddItem?id=@item3.ID_Product&quantity=1">
                                                 <div class="cart-right"> </div>
-                                                <div class="clear"></div>
-                                            </div>
+                                            </a>
+                                            <div class="clear"></div>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
                             }
 
